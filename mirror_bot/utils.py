@@ -1,4 +1,4 @@
-import json
+import yaml
 import subprocess
 
 
@@ -29,3 +29,14 @@ def get(action):
     with open('tmp', 'r') as f:
         # print(f.read())
         return f.read()
+
+
+def read(file):
+    with open(file, 'r') as f:
+        data = yaml.load(f.read())
+    return data
+
+
+def write(file, data):
+    with open(file, 'w') as f:
+        f.write(yaml.dump(data))
