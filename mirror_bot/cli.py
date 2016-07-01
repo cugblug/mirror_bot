@@ -38,11 +38,7 @@ def start(container_name):
 
 
 def status(container_name):
-    data = utils.docker_output_load()
-    for i in data:
-        if i['CONTAINER ID'] is 'be6a862ac7be':
-            return True
-    return False
+    pass
 
 
 def stop(container_name):
