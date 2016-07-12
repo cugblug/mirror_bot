@@ -1,3 +1,7 @@
 mirror:
-- ubuntu
-- centos
+- name: ubuntu
+  driver: rsync
+  upstream: rsync://mirrors6.tuna.tsinghua.edu.cn/ubuntu
+- name: centos
+  driver: rsync
+  upstream: rsync://mirrors6.tuna.tsinghua.edu.cn/centos

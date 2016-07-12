@@ -6,12 +6,17 @@ import mirror_bot.utils as utils
 """Temptele
 name: ubuntu
 driver: rsync
-upstream: tuna
+upstream: rsync://mirrors6.tuna.tsinghua.edu.cn/deepin-cd
 
 """
 
 data = {}
 
+"""
+docker run -d -v /mnt/mirror/deepin-cd:/data -v /mnt/log:/log --net=host --name=rsync-deepin-cd --privileged=true mirror-rsync /bin/ash -c "rsync --archive --links --hard-links --times --verbose --timeout=60 --delete --recursive --exclude .~tmp~/ --delete-excluded rsync://mirrors6.tuna.tsinghua.edu.cn/deepin-cd /data >> /log/deepin-cd-$(date "+%Y-%m-%d").log"
+"""
+
 
 def parse(file):
     data = utils.read(file)
+    return data
